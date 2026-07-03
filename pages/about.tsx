@@ -1,16 +1,15 @@
 import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
+import Header from '../components/Header'
 
 export default function About({ content }: any) {
   const about = content.about || {}
   const site = content.site || {}
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <header className="flex justify-between items-center py-6">
-        <h1 className="text-3xl font-bold">About {site.name || 'Terrell AC and Heating'}</h1>
-      </header>
+      <Header />
 
-      <section className="bg-white p-6 rounded shadow">
+      <section className="bg-white p-6 rounded shadow mt-6">
         <p className="text-lg mb-4">{about.intro}</p>
         <h2 className="text-xl font-semibold">Our Team</h2>
         <ul className="mt-3 space-y-2">

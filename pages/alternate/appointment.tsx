@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { getContent } from '../../lib/store'
+import Header from '../../components/Header'
 
 export default function AlternateAppointment({ content }: any){
   const services = content.services || []
@@ -16,7 +17,8 @@ export default function AlternateAppointment({ content }: any){
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white p-8">
-      <div className="max-w-3xl mx-auto bg-black bg-opacity-40 p-6 rounded-lg">
+      <Header variant="alternate" />
+      <div className="max-w-3xl mx-auto bg-black bg-opacity-40 p-6 rounded-lg mt-6">
         <h1 className="text-3xl font-bold mb-4">Schedule a Premium Appointment</h1>
         <form onSubmit={submit} className="space-y-3">
           <input required placeholder="Full name" value={form.name} onChange={e=>setForm({...form, name:e.target.value})} className="w-full p-2 border border-gray-700 bg-black/20 rounded" />

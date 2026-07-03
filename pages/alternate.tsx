@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
 import Link from 'next/link'
+import Header from '../components/Header'
 
 export default function Alternate({ content }: any) {
   const hero = content.home?.heroAlt || {
@@ -11,15 +12,7 @@ export default function Alternate({ content }: any) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      <header className="py-6">
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          <div className="text-2xl font-bold">Terrell AC & Heating — Premium</div>
-          <div>
-            <a href="tel:555-555-5555" className="mr-4">(555) 555-5555</a>
-            <Link href="/request" className="bg-red-600 px-4 py-2 rounded">{hero.cta}</Link>
-          </div>
-        </div>
-      </header>
+      <Header variant="alternate" />
 
       <main className="max-w-6xl mx-auto p-6">
         <section className="grid md:grid-cols-2 gap-8 items-center py-16">
@@ -28,7 +21,9 @@ export default function Alternate({ content }: any) {
             <p className="text-xl text-gray-300 mb-6">{hero.subheadline}</p>
             <Link href="/request" className="inline-block bg-brand-500 text-white px-6 py-3 rounded">{hero.cta}</Link>
           </div>
-          <div className="h-80 bg-black bg-opacity-20 rounded flex items-center justify-center">[Cinematic Photo]</div>
+          <div className="h-80 bg-black bg-opacity-20 rounded flex items-center justify-center overflow-hidden">
+            <img src="/images/hero-alt.svg" alt="Premium HVAC" className="w-full h-full object-cover" />
+          </div>
         </section>
 
         <section className="py-8">

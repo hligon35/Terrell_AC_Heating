@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
+import Header from '../components/Header'
 
 type Props = { content: any }
 
@@ -14,15 +15,7 @@ export default function Home({ content }: Props) {
 
   return (
     <div>
-      <header className="bg-white shadow">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold">Terrell AC & Heating</div>
-          <div className="flex items-center space-x-4">
-            <a href="tel:555-555-5555" className="text-xl font-semibold text-brand-700">(555) 555-5555</a>
-            <Link href="/request" className="bg-red-500 text-white px-4 py-2 rounded">{hero.cta}</Link>
-          </div>
-        </div>
-      </header>
+      <Header variant="primary" />
 
       <main className="max-w-6xl mx-auto p-6">
         <section className="grid md:grid-cols-2 gap-8 items-center py-12">
@@ -34,7 +27,9 @@ export default function Home({ content }: Props) {
               <a href="tel:555-555-5555" className="px-6 py-3 border rounded">Call Now</a>
             </div>
           </div>
-          <div className="bg-gray-50 rounded-lg h-56 flex items-center justify-center">[Hero Image Placeholder]</div>
+          <div className="rounded-lg h-56 flex items-center justify-center overflow-hidden">
+            <img src="/images/hero-primary.svg" alt="Terrell AC hero" className="w-full h-full object-cover" />
+          </div>
         </section>
 
         <section className="py-8">
