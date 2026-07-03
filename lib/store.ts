@@ -25,7 +25,8 @@ export function getContent() {
   // If running in Cloudflare mode, proxy to Worker API
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
     try {
-      const res = require('sync-request')('GET', `${process.env.WORKER_API_BASE}/api/worker/getContent`)
+      const syncReq = eval("require")('sync-request')
+      const res = syncReq('GET', `${process.env.WORKER_API_BASE}/api/worker/getContent`)
       const j = JSON.parse(res.getBody('utf8'))
       return j.content || {}
     } catch (e) {
@@ -40,7 +41,8 @@ export function getContent() {
 export function setContent(content: any) {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
     try {
-      const res = require('sync-request')('POST', `${process.env.WORKER_API_BASE}/api/worker/setContent`, { json: content })
+      const syncReq = eval("require")('sync-request')
+      syncReq('POST', `${process.env.WORKER_API_BASE}/api/worker/setContent`, { json: content })
       return
     } catch (e) {
       console.error('Cloudflare store setContent error', e)
@@ -55,7 +57,8 @@ export function setContent(content: any) {
 export function getLeads() {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
     try {
-      const res = require('sync-request')('GET', `${process.env.WORKER_API_BASE}/api/worker/getLeads`)
+      const syncReq = eval("require")('sync-request')
+      const res = syncReq('GET', `${process.env.WORKER_API_BASE}/api/worker/getLeads`)
       const j = JSON.parse(res.getBody('utf8'))
       return j.leads || []
     } catch (e) { return [] }
@@ -66,7 +69,7 @@ export function getLeads() {
 
 export function addLead(lead: any) {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
-    try { require('sync-request')('POST', `${process.env.WORKER_API_BASE}/api/worker/addLead`, { json: lead }) } catch (e) { console.error(e) }
+    try { const syncReq = eval("require")('sync-request'); syncReq('POST', `${process.env.WORKER_API_BASE}/api/worker/addLead`, { json: lead }) } catch (e) { console.error(e) }
     return
   }
   const db = readDB()
@@ -77,7 +80,7 @@ export function addLead(lead: any) {
 
 export function getSubscribers() {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
-    try { const res = require('sync-request')('GET', `${process.env.WORKER_API_BASE}/api/worker/getSubscribers`); const j = JSON.parse(res.getBody('utf8')); return j.subscribers || [] } catch (e) { return [] }
+    try { const syncReq = eval("require")('sync-request'); const res = syncReq('GET', `${process.env.WORKER_API_BASE}/api/worker/getSubscribers`); const j = JSON.parse(res.getBody('utf8')); return j.subscribers || [] } catch (e) { return [] }
   }
   const db = readDB()
   return db.subscribers || []
@@ -85,7 +88,7 @@ export function getSubscribers() {
 
 export function addSubscriber(s: any) {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
-    try { require('sync-request')('POST', `${process.env.WORKER_API_BASE}/api/worker/addSubscriber`, { json: s }) } catch (e) { console.error(e) }
+    try { const syncReq = eval("require")('sync-request'); syncReq('POST', `${process.env.WORKER_API_BASE}/api/worker/addSubscriber`, { json: s }) } catch (e) { console.error(e) }
     return
   }
   const db = readDB()
@@ -96,7 +99,7 @@ export function addSubscriber(s: any) {
 
 export function getMedia() {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
-    try { const res = require('sync-request')('GET', `${process.env.WORKER_API_BASE}/api/worker/getMedia`); const j = JSON.parse(res.getBody('utf8')); return j.media || [] } catch (e) { return [] }
+    try { const syncReq = eval("require")('sync-request'); const res = syncReq('GET', `${process.env.WORKER_API_BASE}/api/worker/getMedia`); const j = JSON.parse(res.getBody('utf8')); return j.media || [] } catch (e) { return [] }
   }
   const db = readDB()
   return db.media || []
@@ -104,7 +107,7 @@ export function getMedia() {
 
 export function addMedia(item: any) {
   if (process.env.USE_CLOUDFLARE === '1' && process.env.WORKER_API_BASE) {
-    try { require('sync-request')('POST', `${process.env.WORKER_API_BASE}/api/worker/uploadMedia`, { json: item }) } catch (e) { console.error(e) }
+    try { const syncReq = eval("require")('sync-request'); syncReq('POST', `${process.env.WORKER_API_BASE}/api/worker/uploadMedia`, { json: item }) } catch (e) { console.error(e) }
     return
   }
   const db = readDB()

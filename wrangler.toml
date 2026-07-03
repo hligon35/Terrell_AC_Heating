@@ -8,12 +8,16 @@ type = "javascript"
 account_id = "e02ea8e0b7fe319f04e2505df1138d4c"
 
 [[d1_databases]]
-binding = "TERRELL_D1"
+binding = "D1_DATABASE"
 database_name = "617678ce-59e6-4742-a41c-469e9096f4f6"
 
 [[r2_buckets]]
-binding = "TERRELL_MEDIA"
+binding = "MEDIA_BUCKET"
 bucket_name = "terrell-media"
+
+# Optional public URL to build media links. Replace with your account's R2 public URL if available.
+[vars]
+R2_PUBLIC_URL = "https://e02ea8e0b7fe319f04e2505df1138d4c.r2.cloudflarestorage.com/terrell-media"
 
 # You can add routes or environments here; by default this publishes a worker to
 # <name>.workers.dev when you run `wrangler publish` (account_id must be set).
