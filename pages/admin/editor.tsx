@@ -27,6 +27,15 @@ export default function Editor(){
         <input aria-label="Hero subheadline" placeholder="Hero subheadline" className="w-full p-2 border mb-3" value={content.home?.hero?.subheadline || ''} onChange={e=> setContent({...content, home:{ ...(content.home||{}), hero:{ ...(content.home?.hero||{}), subheadline: e.target.value } } })} />
 
         <hr className="my-4" />
+        <h2 className="text-lg font-semibold mb-2">Alternate Hero (Financing)</h2>
+        <label className="block text-sm font-medium">Alt Hero Headline</label>
+        <input className="w-full p-2 border mb-2" value={content.home?.heroAlt?.headline||''} onChange={e=> setContent({...content, home:{ ...(content.home||{}), heroAlt:{ ...(content.home?.heroAlt||{}), headline: e.target.value } } })} />
+        <label className="block text-sm font-medium">Alt Hero Subheadline</label>
+        <input className="w-full p-2 border mb-2" value={content.home?.heroAlt?.subheadline||''} onChange={e=> setContent({...content, home:{ ...(content.home||{}), heroAlt:{ ...(content.home?.heroAlt||{}), subheadline: e.target.value } } })} />
+        <label className="block text-sm font-medium">Alt Hero CTA</label>
+        <input className="w-full p-2 border mb-3" value={content.home?.heroAlt?.cta||''} onChange={e=> setContent({...content, home:{ ...(content.home||{}), heroAlt:{ ...(content.home?.heroAlt||{}), cta: e.target.value } } })} />
+
+        <hr className="my-4" />
         <h2 className="text-lg font-semibold mb-2">Specials</h2>
         {(content.specials || []).map((s:any,i:number)=>(
           <div key={i} className="mb-2 p-2 border rounded">
@@ -45,6 +54,31 @@ export default function Editor(){
         <button className="px-3 py-2 bg-gray-100 rounded" onClick={()=> setContent({...content, specials: [...(content.specials||[]), { title:'', description:'', expires:'' }]})}>Add Special</button>
 
         <hr className="my-4" />
+        <h2 className="text-lg font-semibold mb-2">Financing Options</h2>
+        {(content.financing || []).map((f:any,i:number)=> (
+          <div key={i} className="mb-2 p-2 border rounded">
+            <input className="w-full p-2 mb-1" value={f.title||''} onChange={e=>{ const list = [...(content.financing||[])]; list[i] = {...list[i], title:e.target.value}; setContent({...content, financing: list}) }} />
+            <textarea className="w-full p-2 mb-1" value={f.desc||''} onChange={e=>{ const list = [...(content.financing||[])]; list[i] = {...list[i], desc:e.target.value}; setContent({...content, financing: list}) }} />
+            <div className="flex gap-2">
+              <button className="px-2 py-1 bg-red-100" onClick={()=>{ const list = (content.financing||[]).filter((_:any,idx:number)=>idx!==i); setContent({...content, financing: list}) }}>Remove</button>
+            </div>
+          </div>
+        ))}
+        <button className="px-3 py-2 bg-gray-100 rounded" onClick={()=> setContent({...content, financing: [...(content.financing||[]), { title:'', desc:'' }]})}>Add Financing Option</button>
+
+        <hr className="my-4" />
+        <h2 className="text-lg font-semibold mb-2">FAQs</h2>
+        {(content.faqs || []).map((q:any,i:number)=>(
+          <div key={i} className="mb-2 p-2 border rounded">
+            <input className="w-full p-2 mb-1" value={q.q||''} onChange={e=>{ const list=[...(content.faqs||[])]; list[i] = {...list[i], q: e.target.value}; setContent({...content, faqs: list}) }} />
+            <textarea className="w-full p-2 mb-1" value={q.a||''} onChange={e=>{ const list=[...(content.faqs||[])]; list[i] = {...list[i], a: e.target.value}; setContent({...content, faqs: list}) }} />
+            <div className="flex gap-2">
+              <button className="px-2 py-1 bg-red-100" onClick={()=>{ const list = (content.faqs||[]).filter((_:any,idx:number)=>idx!==i); setContent({...content, faqs: list}) }}>Remove</button>
+            </div>
+          </div>
+        ))}
+        <button className="px-3 py-2 bg-gray-100 rounded" onClick={()=> setContent({...content, faqs: [...(content.faqs||[]), { q:'', a:'' }]})}>Add FAQ</button>
+
         <h2 className="text-lg font-semibold mb-2">Media Manager</h2>
         <div className="grid gap-2">
           {(content.media || []).map((m:any,i:number)=>(
