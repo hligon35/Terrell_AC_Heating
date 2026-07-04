@@ -16,10 +16,15 @@ export default function Appointment({ content }: any){
   }
 
   return (
-    <div>
-      <Header />
-      <div className="max-w-3xl mx-auto p-6 mt-6">
-        <h1 className="text-2xl font-bold mb-4">Make an Appointment</h1>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <Header variant="alternate" />
+      <main className="max-w-3xl mx-auto p-6">
+        <section className="py-12">
+          <h1 className="text-4xl font-extrabold">Make an Appointment</h1>
+          <p className="text-gray-600 mt-2">Request a time and we'll confirm with you.</p>
+        </section>
+
+        <section className="mt-6 bg-white p-6 rounded shadow">
       <form onSubmit={submit} className="space-y-3">
         <label className="sr-only">Full name</label>
         <input required placeholder="Full name" value={form.name} onChange={e=>setForm({...form, name:e.target.value})} className="w-full p-2 border rounded" />
@@ -39,7 +44,8 @@ export default function Appointment({ content }: any){
         <button className="px-4 py-2 bg-brand-500 text-white rounded">Request Appointment</button>
       </form>
       {status && <div className="mt-4 p-3 bg-green-50 text-green-800 rounded">{status}</div>}
-      </div>
+        </section>
+      </main>
     </div>
   )
 }
