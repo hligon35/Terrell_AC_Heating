@@ -11,6 +11,15 @@ const emptyForm = {
   notes: ''
 }
 
+const serviceOptions = [
+  'System Installation',
+  'System Replacement',
+  'Emergency Repair',
+  'Preventative Maintenance',
+  'Duct Cleaning & Sealing',
+  'Thermostat Services'
+]
+
 export default function BookNowModal({ open, onClose }: { open:boolean, onClose: ()=>void }){
   const [form, setForm] = useState(emptyForm)
   const [status, setStatus] = useState('')
@@ -57,7 +66,7 @@ export default function BookNowModal({ open, onClose }: { open:boolean, onClose:
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300">Book Service</p>
             <h2 id="book-now-title" className="mt-1 text-2xl font-extrabold sm:text-3xl">Schedule HVAC Help</h2>
-            <p className="mt-2 text-sm leading-6 text-gray-300">Tell us what is happening with your AC or heat. We will follow up to confirm timing and next steps.</p>
+            <p className="mt-2 text-sm leading-6 text-gray-300">Tell us what you need help with. We will follow up to confirm timing, service details, and the next best step.</p>
           </div>
           <button className="rounded-full bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/20" onClick={onClose}>Close</button>
         </div>
@@ -83,12 +92,7 @@ export default function BookNowModal({ open, onClose }: { open:boolean, onClose:
               <span className="mb-1 block text-sm font-semibold text-gray-700">Service needed</span>
               <select value={form.service} onChange={e=>setForm({...form, service:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100">
                 <option value="">Select a service</option>
-                <option>AC repair</option>
-                <option>Heating repair</option>
-                <option>System installation</option>
-                <option>Seasonal maintenance</option>
-                <option>Indoor air quality</option>
-                <option>Commercial HVAC</option>
+                {serviceOptions.map(service => <option key={service}>{service}</option>)}
               </select>
             </label>
 
@@ -113,7 +117,7 @@ export default function BookNowModal({ open, onClose }: { open:boolean, onClose:
 
             <label className="block sm:col-span-2">
               <span className="mb-1 block text-sm font-semibold text-gray-700">What is going on?</span>
-              <textarea rows={4} value={form.notes} onChange={e=>setForm({...form, notes:e.target.value})} placeholder="Example: AC is blowing warm air, unit is making noise, thermostat is not responding..." className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+              <textarea rows={4} value={form.notes} onChange={e=>setForm({...form, notes:e.target.value})} placeholder="Example: replacing an older system, emergency repair, duct cleaning, thermostat issue..." className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
             </label>
 
             <div className="flex flex-col gap-3 pt-2 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
