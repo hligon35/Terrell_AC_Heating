@@ -25,29 +25,34 @@ export default function Home({ content }: any) {
       <Header variant="alternate" />
 
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-        <section className="grid gap-8 py-10 sm:py-14 md:grid-cols-2 md:items-center lg:py-16">
+        <section className="grid gap-8 py-8 sm:py-12 md:grid-cols-2 md:items-center lg:py-16">
           <div>
-            <div className="mb-4 inline-flex rounded-full border border-red-400/40 bg-red-500/10 px-4 py-2 text-xs font-semibold text-red-100 sm:text-sm">24/7 comfort help for AC, heat, and airflow</div>
+            <div className="mb-4 inline-flex rounded-full border border-red-400/40 bg-red-500/10 px-4 py-2 text-xs font-semibold text-red-100 sm:text-sm">Residential & commercial HVAC service</div>
             <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">{hero.headline}</h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-gray-300 sm:text-xl">{hero.subheadline}</p>
+            <p className="mt-3 max-w-xl text-sm leading-7 text-gray-400 sm:text-base">From warm air and noisy units to seasonal tune-ups and system replacements, Terrell AC & Heating helps you get comfortable again with straightforward service and clear next steps.</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/request" className="inline-flex justify-center rounded bg-brand-500 px-6 py-3 text-center font-semibold text-white shadow-lg shadow-brand-500/20">{hero.cta}</Link>
-              <Link href="/gallery" className="inline-flex justify-center rounded border border-white/20 bg-white/10 px-6 py-3 text-center font-semibold text-white backdrop-blur">View Our Work</Link>
+              <Link href="/request" className="inline-flex justify-center rounded-xl bg-red-600 px-6 py-3 text-center font-bold text-white shadow-lg shadow-red-600/20">Request Service</Link>
+              <Link href="/services" className="inline-flex justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-center font-bold text-white backdrop-blur">View Services</Link>
             </div>
           </div>
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 shadow-2xl shadow-black/40">
             <img src={heroImage} alt={hero.imageAlt || 'HVAC technician servicing equipment'} className="h-72 w-full object-cover sm:h-96 md:h-[28rem]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-200 sm:text-sm">Repair • Installation • Maintenance</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-200 sm:text-sm">AC Repair • Heating • Installation • Maintenance</p>
             </div>
           </div>
         </section>
 
         <section className="grid gap-4 py-4 sm:grid-cols-3">
-          {['Emergency Repairs', 'System Installations', 'Seasonal Tune-Ups'].map((item) => (
-            <div key={item} className="rounded-2xl border border-white/10 bg-white/10 p-5 text-center backdrop-blur">
-              <p className="text-lg font-bold">{item}</p>
-              <p className="mt-1 text-sm text-gray-300">Professional HVAC service that helps the site feel real and complete.</p>
+          {[
+            ['Fast Help', 'Tell us what is happening and we will help you choose the right next step.'],
+            ['Clear Options', 'Get practical repair, maintenance, or replacement guidance without the confusion.'],
+            ['Comfort First', 'Service focused on restoring airflow, temperature control, and peace of mind.']
+          ].map(([title, copy]) => (
+            <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-5 text-center backdrop-blur">
+              <p className="text-lg font-bold">{title}</p>
+              <p className="mt-1 text-sm leading-6 text-gray-300">{copy}</p>
             </div>
           ))}
         </section>
@@ -56,7 +61,7 @@ export default function Home({ content }: any) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-300 sm:text-sm">HVAC Services</p>
-              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Real equipment. Real service visuals.</h2>
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Help for the systems that keep your home comfortable.</h2>
             </div>
             <Link href="/services" className="font-semibold text-red-300">See all services</Link>
           </div>
@@ -69,7 +74,7 @@ export default function Home({ content }: any) {
                   <div className="p-5 sm:p-6">
                     <h3 className="text-xl font-bold">{s.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-gray-300">{s.excerpt}</p>
-                    <Link href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-red-400">Explore</Link>
+                    <Link href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-red-400">Learn more</Link>
                   </div>
                 </div>
               )
@@ -81,8 +86,8 @@ export default function Home({ content }: any) {
           <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur sm:p-6">
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-300 sm:text-sm">Gallery Preview</p>
-                <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Photos that make the website feel finished</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-300 sm:text-sm">Recent Work</p>
+                <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Real HVAC equipment, repairs, and service visits.</h2>
               </div>
               <Link href="/gallery" className="font-semibold text-red-300">Open gallery</Link>
             </div>
