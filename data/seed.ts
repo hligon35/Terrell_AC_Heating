@@ -28,15 +28,15 @@ const seed = () => {
       home: {
         hero: {
           headline: 'Fast, Reliable HVAC Service',
-          subheadline: 'Comfort restored. Experts on call 24/7.',
+          subheadline: 'AC not cooling? Heat not keeping up? Get straightforward service for repairs, maintenance, and comfort upgrades.',
           cta: 'Request Service',
           image: hvacImages.hero,
           imageAlt: 'HVAC technician servicing a wall-mounted air conditioning unit'
         },
         heroAlt: {
-          headline: 'Premium HVAC Care for Your Home',
-          subheadline: 'Cinematic comfort, expert technicians.',
-          cta: 'Schedule Premium Service',
+          headline: 'Comfort You Can Feel Again',
+          subheadline: 'Residential and commercial HVAC help for cooling, heating, airflow, and system performance.',
+          cta: 'Schedule Service',
           image: demoImages.heroAlt,
           imageAlt: 'Outdoor condenser units lined up against a bright sky'
         }
@@ -45,48 +45,48 @@ const seed = () => {
         {
           slug: 'ac-repair',
           title: 'AC Repair',
-          excerpt: 'Fast AC repairs to get your home cool again.',
-          body: 'When the air stops blowing cold, Terrell AC and Heating can inspect the system, diagnose the issue, and restore comfort with clean, professional repair work.',
+          excerpt: 'Help when your AC is blowing warm air, running nonstop, leaking, or not turning on.',
+          body: 'When your air conditioner is not keeping up, Terrell AC and Heating can inspect the system, explain what is happening, and recommend the best repair path for your home or business.',
           image: hvacImages.acRepair,
           imageAlt: 'AC gauges connected to an open air conditioning unit during repair'
         },
         {
           slug: 'heating-repair',
           title: 'Heating Repair',
-          excerpt: 'Heating specialists to restore warmth quickly.',
-          body: 'From furnace issues to uneven heating, our team checks the source of the problem and gets your heat working safely and reliably.',
+          excerpt: 'Service for uneven heat, strange smells, noisy equipment, or a system that will not start.',
+          body: 'Heating problems can make a home uncomfortable fast. We help identify the issue, check for safe operation, and get your system moving toward reliable warmth again.',
           image: hvacImages.heatingRepair,
           imageAlt: 'Residential outdoor condenser beside a home exterior'
         },
         {
           slug: 'installation',
           title: 'HVAC Installation',
-          excerpt: 'High-efficiency systems installed by pros.',
-          body: 'Upgrade your comfort with correctly sized, professionally installed HVAC equipment built for long-term performance.',
+          excerpt: 'Replacement and installation options when your current system is outdated or unreliable.',
+          body: 'A new HVAC system should be sized correctly and installed with long-term comfort in mind. We help customers understand their options and prepare for a cleaner installation experience.',
           image: hvacImages.installation,
           imageAlt: 'Technician running diagnostics on rooftop HVAC equipment'
         },
         {
           slug: 'maintenance',
           title: 'HVAC Maintenance',
-          excerpt: 'Seasonal tune-ups that help prevent surprise breakdowns.',
-          body: 'Routine maintenance helps extend equipment life, improve airflow, and catch small issues before they become expensive repairs.',
+          excerpt: 'Seasonal tune-ups that help reduce surprise breakdowns and keep air moving properly.',
+          body: 'Maintenance helps catch small issues early, improve airflow, and support longer equipment life. Schedule service before the weather puts your system under pressure.',
           image: hvacImages.maintenance,
           imageAlt: 'Technician servicing an indoor ceiling cassette HVAC unit'
         },
         {
           slug: 'indoor-air-quality',
           title: 'Indoor Air Quality',
-          excerpt: 'Cleaner air solutions for a healthier home.',
-          body: 'Improve indoor comfort with filter, ventilation, humidity, and air-quality solutions designed around your home.',
+          excerpt: 'Comfort solutions for cleaner air, better filtration, humidity, and airflow concerns.',
+          body: 'If your home feels stuffy, dusty, humid, or uneven from room to room, indoor air quality improvements can help support a more comfortable living environment.',
           image: hvacImages.indoorAir,
           imageAlt: 'Clean modern home interior representing indoor air comfort'
         },
         {
           slug: 'ductwork',
           title: 'Ductwork',
-          excerpt: 'Duct repairs and airflow improvements for better comfort.',
-          body: 'Leaky or poorly designed ductwork can waste energy. We inspect, repair, and improve duct systems for stronger airflow.',
+          excerpt: 'Airflow checks and ductwork support for rooms that never seem to feel right.',
+          body: 'Poor ductwork can waste energy and leave certain spaces uncomfortable. We help evaluate airflow issues and recommend practical next steps.',
           image: hvacImages.ductwork,
           imageAlt: 'Commercial HVAC technician inspecting equipment with a tablet'
         }
@@ -101,7 +101,7 @@ const seed = () => {
         },
         {
           title: 'Commercial System Consultation',
-          description: 'Explore replacement, service, and maintenance options for larger HVAC systems.',
+          description: 'Explore service, maintenance, and replacement options for larger HVAC systems.',
           expires: 'Call for availability',
           image: hvacImages.commercial,
           imageAlt: 'Commercial rooftop HVAC system with multiple units'
@@ -116,12 +116,12 @@ const seed = () => {
         { name: 'Rooftop system diagnostics', url: demoImages.installation, alt: 'Technician inspecting rooftop HVAC equipment' }
       ],
       about: {
-        intro: 'Terrell AC and Heating helps families and businesses stay comfortable with responsive service, honest recommendations, and clean HVAC workmanship.',
+        intro: 'Terrell AC and Heating helps families and businesses stay comfortable with responsive service, clear communication, and clean HVAC workmanship.',
         image: hvacImages.team,
         imageAlt: 'HVAC service professional prepared for the day',
         team: [
           { name: 'William Terrell', role: 'Owner / Lead Technician' },
-          { name: 'Service Team', role: 'Repair, installation, and maintenance specialists' }
+          { name: 'Service Team', role: 'Repair, installation, and maintenance support' }
         ],
         values: ['Honest diagnostics', 'Clean workmanship', 'Fast response', 'Comfort-first service']
       },
