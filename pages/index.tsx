@@ -2,16 +2,10 @@ import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
 import Link from 'next/link'
 import Header from '../components/Header'
+import { demoImages, demoServiceImages, resolveDemoImage } from '../lib/demoImages'
 
-const fallbackHero = '/images/hvac-hero.svg'
-const fallbackServiceImages = [
-  '/images/hvac-ac-repair.svg',
-  '/images/hvac-heating-repair.svg',
-  '/images/hvac-installation.svg',
-  '/images/hvac-maintenance.svg',
-  '/images/hvac-indoor-air.svg',
-  '/images/hvac-ductwork.svg'
-]
+const fallbackHero = demoImages.heroAlt
+const fallbackServiceImages = demoServiceImages
 
 export default function Home({ content }: any) {
   const hero = content.home?.heroAlt || content.home?.hero || {
@@ -23,6 +17,7 @@ export default function Home({ content }: any) {
   }
   const services = content.services || []
   const gallery = content.media || []
+  const heroImage = resolveDemoImage(hero.image, fallbackHero)
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white">
@@ -40,7 +35,7 @@ export default function Home({ content }: any) {
             </div>
           </div>
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 shadow-2xl shadow-black/40">
-            <img src={hero.image || fallbackHero} alt={hero.imageAlt || 'HVAC technician servicing equipment'} className="h-72 w-full object-cover sm:h-96 md:h-[28rem]" />
+            <img src={heroImage} alt={hero.imageAlt || 'HVAC technician servicing equipment'} className="h-72 w-full object-cover sm:h-96 md:h-[28rem]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-200 sm:text-sm">Repair • Installation • Maintenance</p>
             </div>
@@ -65,16 +60,19 @@ export default function Home({ content }: any) {
             <Link href="/services" className="font-semibold text-red-300">See all services</Link>
           </div>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s:any, index:number)=> (
-              <div key={s.slug} className="overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-xl shadow-black/20 backdrop-blur"> 
-                <img src={s.image || fallbackServiceImages[index % fallbackServiceImages.length]} alt={s.imageAlt || s.title} className="h-48 w-full object-cover" />
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-xl font-bold">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-300">{s.excerpt}</p>
-                  <Link href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-red-400">Explore</Link>
+            {services.map((s:any, index:number)=> {
+              const image = resolveDemoImage(s.image, fallbackServiceImages[index % fallbackServiceImages.length])
+              return (
+                <div key={s.slug} className="overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-xl shadow-black/20 backdrop-blur"> 
+                  <img src={image} alt={s.imageAlt || s.title} className="h-48 w-full object-cover" />
+                  <div className="p-5 sm:p-6">
+                    <h3 className="text-xl font-bold">{s.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-300">{s.excerpt}</p>
+                    <Link href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-red-400">Explore</Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
 
@@ -88,12 +86,15 @@ export default function Home({ content }: any) {
               <Link href="/gallery" className="font-semibold text-red-300">Open gallery</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {(gallery.length ? gallery : fallbackServiceImages.map((url, i) => ({ url, alt: 'HVAC service visual', name: `HVAC Work ${i + 1}` }))).slice(0, 6).map((m:any, i:number)=>(
-                <div key={`${m.url}-${i}`} className="overflow-hidden rounded-2xl bg-black/30">
-                  <img src={m.url} alt={m.alt || m.name || 'HVAC work visual'} className="h-44 w-full object-cover transition duration-500 hover:scale-105" />
-                  <div className="p-3 text-sm text-gray-200">{m.name || m.alt}</div>
-                </div>
-              ))}
+              {(gallery.length ? gallery : fallbackServiceImages.map((url, i) => ({ url, alt: 'HVAC service visual', name: `HVAC Work ${i + 1}` }))).slice(0, 6).map((m:any, i:number)=>{
+                const image = resolveDemoImage(m.url, fallbackServiceImages[i % fallbackServiceImages.length])
+                return (
+                  <div key={`${m.url}-${i}`} className="overflow-hidden rounded-2xl bg-black/30">
+                    <img src={image} alt={m.alt || m.name || 'HVAC work visual'} className="h-44 w-full object-cover transition duration-500 hover:scale-105" />
+                    <div className="p-3 text-sm text-gray-200">{m.name || m.alt}</div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
