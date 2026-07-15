@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" role="img" aria-labelledby="title desc">
+  <title id="title">HVAC installation</title>
+  <desc id="desc">Illustration of new HVAC system installation with ductwork, equipment, and installation tools.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecfeff"/><stop offset="1" stop-color="#164e63"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity="0.25"/></filter></defs>
+  <rect width="1400" height="950" fill="url(#bg)"/>
+  <g filter="url(#s)">
+    <rect x="170" y="270" width="1060" height="120" rx="60" fill="#e2e8f0"/>
+    <rect x="270" y="390" width="90" height="290" rx="20" fill="#cbd5e1"/>
+    <rect x="610" y="390" width="90" height="290" rx="20" fill="#cbd5e1"/>
+    <rect x="950" y="390" width="90" height="290" rx="20" fill="#cbd5e1"/>
+    <rect x="420" y="505" width="520" height="250" rx="34" fill="#f8fafc"/>
+    <rect x="470" y="560" width="420" height="90" rx="20" fill="#0f172a"/>
+    <path d="M500 685h360" stroke="#94a3b8" stroke-width="26" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#s)">
+    <circle cx="1080" cy="560" r="52" fill="#fff7ed"/>
+    <rect x="1025" y="615" width="118" height="160" rx="38" fill="#f97316"/>
+    <path d="M1025 655c-58 12-105 45-135 100" stroke="#f8fafc" stroke-width="20" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="70" y="115" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#083344">HVAC Installation</text>
+  <text x="70" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#155e75">New systems, duct connections, and clean setup</text>
+</svg>
