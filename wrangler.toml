@@ -1,4 +1,4 @@
-name = "terrell-worker"
+name = "terrellach"
 main = "workers/worker.js"
 compatibility_date = "2026-07-03"
 type = "javascript"
