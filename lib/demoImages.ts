@@ -6,7 +6,8 @@ export const uploadedHvacImages = {
   outdoorCondensers: '/images/hvac-demo/outdoor-condensers.jpg',
   techTablet: '/images/hvac-demo/tech-tablet.jpg',
   residentialCondenser: '/images/hvac-demo/residential-condenser.jpg',
-  gaugeRepair: '/images/hvac-demo/gauge-repair.jpg'
+  gaugeRepair: '/images/hvac-demo/gauge-repair.jpg',
+  workVan: '/images/hvac-demo/workvan.jpg',
 }
 
 export const stockHvacImages = {
@@ -18,7 +19,7 @@ export const stockHvacImages = {
 }
 
 export const demoImages = {
-  hero: uploadedHvacImages.wallUnitService,
+  hero: uploadedHvacImages.workVan,
   heroAlt: uploadedHvacImages.outdoorCondensers,
   acRepair: uploadedHvacImages.gaugeRepair,
   heatingRepair: uploadedHvacImages.residentialCondenser,
@@ -27,7 +28,7 @@ export const demoImages = {
   indoorAir: stockHvacImages.cleanInterior,
   ductwork: uploadedHvacImages.techTablet,
   commercial: uploadedHvacImages.commercialRooftop,
-  tuneup: stockHvacImages.maintenanceWork,
+  tuneup: uploadedHvacImages.indoorMaintenance,
   team: stockHvacImages.technicianGeneral,
   comfortInterior: stockHvacImages.comfortInterior,
   constructionWork: stockHvacImages.constructionWork,
