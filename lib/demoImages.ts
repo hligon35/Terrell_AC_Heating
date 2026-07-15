@@ -18,7 +18,6 @@ export const stockHvacImages = {
 }
 
 export const demoImages = {
-  // Primary public-site placements. Each key intentionally points to a unique image.
   hero: uploadedHvacImages.wallUnitService,
   heroAlt: uploadedHvacImages.outdoorCondensers,
   acRepair: uploadedHvacImages.gaugeRepair,
@@ -54,6 +53,7 @@ export const demoGalleryImages = [
 
 export function resolveDemoImage(src: string | undefined | null, fallback: string) {
   if (!src) return fallback
-  const isOldDemo = src.includes('/images/hvac-') || src.endsWith('.svg') || src.includes('source.unsplash.com')
-  return isOldDemo ? fallback : src
+  const isOldSvgDemo = src.includes('/images/hvac-') && src.endsWith('.svg')
+  const isOldRandomDemo = src.includes('source.unsplash.com')
+  return isOldSvgDemo || isOldRandomDemo ? fallback : src
 }
