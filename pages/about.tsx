@@ -1,16 +1,19 @@
 import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
 import Header from '../components/Header'
+import { demoImages, resolveDemoImage } from '../lib/demoImages'
 
 export default function About({ content }: any) {
   const about = content.about || {}
+  const aboutImage = resolveDemoImage(about.image, demoImages.team)
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-gray-50">
       <Header />
 
       <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
         <section className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl">
-          <img src={about.image || '/images/hvac-team.svg'} alt={about.imageAlt || 'HVAC service team and equipment'} className="h-64 w-full object-cover sm:h-72" />
+          <img src={aboutImage} alt={about.imageAlt || 'HVAC service team and equipment'} className="h-64 w-full object-cover sm:h-72" />
           <div className="p-5 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-sm">About Terrell AC & Heating</p>
             <p className="mt-3 text-base leading-8 text-gray-700 sm:text-lg">{about.intro || 'Terrell AC and Heating provides dependable AC, heating, installation, and maintenance service with clean workmanship and honest recommendations.'}</p>
