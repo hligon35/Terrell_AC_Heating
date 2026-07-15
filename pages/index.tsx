@@ -2,21 +2,22 @@ import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
 import Link from 'next/link'
 import Header from '../components/Header'
-import { demoImages, demoServiceImages, resolveDemoImage } from '../lib/demoImages'
+import { demoImages, demoServiceImages, demoGalleryImages, resolveDemoImage } from '../lib/demoImages'
 
-const fallbackHero = demoImages.heroAlt
+const fallbackHero = demoImages.hero
 const fallbackServiceImages = demoServiceImages
+const fallbackGallery = demoGalleryImages
 
 export default function Home({ content }: any) {
-  const hero = content.home?.heroAlt || content.home?.hero || {
-    headline: 'Premium HVAC Care for Your Home',
-    subheadline: 'Cinematic comfort, expert technicians.',
-    cta: 'Schedule Premium Service',
+  const hero = content.home?.hero || content.home?.heroAlt || {
+    headline: 'Fast, Reliable HVAC Service',
+    subheadline: 'Comfort restored. Experts on call 24/7.',
+    cta: 'Request Service',
     image: fallbackHero,
     imageAlt: 'HVAC technician servicing residential AC equipment'
   }
   const services = content.services || []
-  const gallery = content.media || []
+  const gallery = content.media?.length ? content.media : fallbackGallery
   const heroImage = resolveDemoImage(hero.image, fallbackHero)
 
   return (
@@ -86,8 +87,9 @@ export default function Home({ content }: any) {
               <Link href="/gallery" className="font-semibold text-red-300">Open gallery</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {(gallery.length ? gallery : fallbackServiceImages.map((url, i) => ({ url, alt: 'HVAC service visual', name: `HVAC Work ${i + 1}` }))).slice(0, 6).map((m:any, i:number)=>{
-                const image = resolveDemoImage(m.url, fallbackServiceImages[i % fallbackServiceImages.length])
+              {gallery.slice(0, 6).map((m:any, i:number)=>{
+                const fallback = fallbackGallery[i % fallbackGallery.length]?.url || fallbackServiceImages[i % fallbackServiceImages.length]
+                const image = resolveDemoImage(m.url, fallback)
                 return (
                   <div key={`${m.url}-${i}`} className="overflow-hidden rounded-2xl bg-black/30">
                     <img src={image} alt={m.alt || m.name || 'HVAC work visual'} className="h-44 w-full object-cover transition duration-500 hover:scale-105" />
