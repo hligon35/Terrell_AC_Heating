@@ -12,11 +12,11 @@ const fallbackSpecials = [
     imageAlt: 'Technician completing a seasonal maintenance visit'
   },
   {
-    title: 'New System Installation Consultation',
-    description: 'Explore replacement options for aging AC and heating equipment with a no-pressure consultation.',
+    title: 'Commercial System Consultation',
+    description: 'Explore replacement, service, and maintenance options for larger HVAC systems.',
     expires: 'Call for availability',
-    image: demoImages.installation,
-    imageAlt: 'Professional installation and home improvement work'
+    image: demoImages.commercial,
+    imageAlt: 'Commercial rooftop HVAC system with multiple units'
   }
 ]
 
