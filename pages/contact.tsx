@@ -7,25 +7,34 @@ export default function Contact(){
 
   async function submit(e:any){
     e.preventDefault()
+    setStatus('Sending...')
     const res = await fetch('/api/leads', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ ...form, type:'contact' }) })
-    if (res.ok) setStatus('Message received — thanks!')
-    else setStatus('Error')
+    if (res.ok) setStatus('Thanks — your message was sent. We will follow up soon.')
+    else setStatus('Something went wrong. Please call us directly so we can help.')
   }
 
   return (
-    <div>
+    <div className="min-h-screen overflow-x-hidden bg-gray-50">
       <Header />
-      <div className="max-w-3xl mx-auto p-6 mt-6">
-        <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
-      <form onSubmit={submit} className="space-y-3">
-        <input required placeholder="Full name" value={form.name} onChange={e=>setForm({...form, name:e.target.value})} className="w-full p-2 border rounded" />
-        <input placeholder="Phone" value={form.phone} onChange={e=>setForm({...form, phone:e.target.value})} className="w-full p-2 border rounded" />
-        <input placeholder="Email" value={form.email} onChange={e=>setForm({...form, email:e.target.value})} className="w-full p-2 border rounded" />
-        <textarea placeholder="Message" value={form.message} onChange={e=>setForm({...form, message:e.target.value})} className="w-full p-2 border rounded" />
-        <button className="px-4 py-2 bg-brand-500 text-white rounded">Send Message</button>
-      </form>
-      {status && <div className="mt-4 p-3 bg-green-50 text-green-800 rounded">{status}</div>}
-      </div>
+      <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+        <section className="grid gap-6 rounded-3xl bg-white p-5 shadow-xl sm:p-8 md:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-sm">Contact Terrell AC & Heating</p>
+            <h1 className="mt-2 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">Need help with your AC or heat?</h1>
+            <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">Send a message about the issue, the equipment, or the service you need. For urgent problems, calling is the fastest option.</p>
+            <a href="tel:(555) 555-5555" className="mt-5 inline-flex w-full justify-center rounded-xl bg-gray-900 px-5 py-3 font-bold text-white sm:w-auto">Call (555) 555-5555</a>
+          </div>
+
+          <form onSubmit={submit} className="grid gap-4">
+            <input required placeholder="Full name" value={form.name} onChange={e=>setForm({...form, name:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+            <input placeholder="Phone number" inputMode="tel" value={form.phone} onChange={e=>setForm({...form, phone:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+            <input placeholder="Email address" type="email" value={form.email} onChange={e=>setForm({...form, email:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+            <textarea rows={5} placeholder="Tell us what is going on with your system" value={form.message} onChange={e=>setForm({...form, message:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+            <button className="w-full rounded-xl bg-red-600 px-5 py-3 font-bold text-white sm:w-auto">Send Message</button>
+            {status && <div className="rounded-xl bg-green-50 p-4 text-sm font-semibold leading-6 text-green-800">{status}</div>}
+          </form>
+        </section>
+      </main>
     </div>
   )
 }
