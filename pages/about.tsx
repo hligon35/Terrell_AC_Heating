@@ -5,23 +5,23 @@ import Header from '../components/Header'
 export default function About({ content }: any) {
   const about = content.about || {}
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen overflow-x-hidden bg-gray-50">
       <Header />
 
-      <main className="max-w-5xl mx-auto p-6">
-        <section className="mt-6 overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100">
-          <img src={about.image || 'https://source.unsplash.com/1400x950/?hvac,team,technician'} alt={about.imageAlt || 'HVAC service team and equipment'} className="h-72 w-full object-cover" />
-          <div className="p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-red-500">About Terrell AC & Heating</p>
-            <p className="mt-3 text-lg leading-8 text-gray-700">{about.intro || 'Terrell AC and Heating provides dependable AC, heating, installation, and maintenance service with clean workmanship and honest recommendations.'}</p>
+      <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+        <section className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl">
+          <img src={about.image || '/images/hvac-team.svg'} alt={about.imageAlt || 'HVAC service team and equipment'} className="h-64 w-full object-cover sm:h-72" />
+          <div className="p-5 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-sm">About Terrell AC & Heating</p>
+            <p className="mt-3 text-base leading-8 text-gray-700 sm:text-lg">{about.intro || 'Terrell AC and Heating provides dependable AC, heating, installation, and maintenance service with clean workmanship and honest recommendations.'}</p>
             <h2 className="mt-8 text-xl font-semibold text-gray-900">Our Team</h2>
             <ul className="mt-3 grid gap-3 sm:grid-cols-2">
-              {(about.team || []).map((m:any,i:number)=>(<li key={i} className="p-4 bg-gray-50 rounded-2xl border border-gray-100"><span className="font-semibold">{m.name}</span><div className="text-sm text-gray-600">{m.role}</div></li>))}
+              {(about.team || []).map((m:any,i:number)=>(<li key={i} className="rounded-2xl border border-gray-100 bg-gray-50 p-4"><span className="font-semibold">{m.name}</span><div className="text-sm text-gray-600">{m.role}</div></li>))}
             </ul>
 
             <h3 className="mt-8 text-lg font-semibold text-gray-900">Values</h3>
-            <ul className="mt-3 flex gap-3 flex-wrap">
-              {(about.values || ['Honest diagnostics', 'Clean workmanship', 'Fast response', 'Comfort-first service']).map((v:any,i:number)=>(<li key={i} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700">{v}</li>))}
+            <ul className="mt-3 flex flex-wrap gap-3">
+              {(about.values || ['Honest diagnostics', 'Clean workmanship', 'Fast response', 'Comfort-first service']).map((v:any,i:number)=>(<li key={i} className="rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700">{v}</li>))}
             </ul>
           </div>
         </section>
