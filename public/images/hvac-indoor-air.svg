@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" role="img" aria-labelledby="title desc">
+  <title id="title">Indoor air quality upgrade</title>
+  <desc id="desc">Illustration of air filters, vents, and clean airflow for indoor air quality HVAC service.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0fdfa"/><stop offset="1" stop-color="#0f766e"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity="0.22"/></filter></defs>
+  <rect width="1400" height="950" fill="url(#bg)"/>
+  <g opacity="0.45" stroke="#ccfbf1" stroke-width="20" fill="none" stroke-linecap="round"><path d="M150 280c180-90 350-80 510 30"/><path d="M170 385c150-70 300-60 430 22"/><path d="M800 215c180 40 310 135 390 285"/><path d="M830 320c130 35 225 105 285 210"/></g>
+  <g filter="url(#s)">
+    <rect x="235" y="335" width="415" height="430" rx="40" fill="#ffffff"/>
+    <rect x="300" y="405" width="285" height="70" rx="18" fill="#0f172a"/>
+    <g stroke="#14b8a6" stroke-width="18" stroke-linecap="round"><path d="M315 535h250"/><path d="M315 590h250"/><path d="M315 645h250"/></g>
+  </g>
+  <g filter="url(#s)">
+    <rect x="805" y="290" width="360" height="520" rx="42" fill="#f8fafc"/>
+    <rect x="875" y="360" width="220" height="300" rx="26" fill="#dbeafe"/>
+    <path d="M900 415h170M900 485h170M900 555h170" stroke="#0f766e" stroke-width="22" stroke-linecap="round"/>
+    <rect x="890" y="700" width="190" height="40" rx="20" fill="#14b8a6"/>
+  </g>
+  <text x="70" y="115" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#134e4a">Indoor Air Quality</text>
+  <text x="70" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#115e59">Filtration, ventilation, humidity, and cleaner airflow</text>
+</svg>
