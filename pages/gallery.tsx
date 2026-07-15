@@ -1,16 +1,9 @@
 import Header from '../components/Header'
 import { GetServerSideProps } from 'next'
 import { getContent } from '../lib/store'
-import { demoImages, resolveDemoImage } from '../lib/demoImages'
+import { demoGalleryImages, resolveDemoImage } from '../lib/demoImages'
 
-const fallbackMedia = [
-  { name: 'AC service procedure', url: demoImages.acRepair, alt: 'Technician servicing electrical and AC-related components' },
-  { name: 'Heating repair visit', url: demoImages.heatingRepair, alt: 'Heating and home repair service procedure' },
-  { name: 'System installation work', url: demoImages.installation, alt: 'Professional installation work on a job site' },
-  { name: 'Preventive maintenance', url: demoImages.maintenance, alt: 'Technician performing preventive maintenance work' },
-  { name: 'Indoor comfort improvements', url: demoImages.indoorAir, alt: 'Modern home interior representing indoor comfort' },
-  { name: 'Airflow and service diagnostics', url: demoImages.ductwork, alt: 'Technician service work for home comfort systems' }
-]
+const fallbackMedia = demoGalleryImages
 
 export default function Gallery({ content }: any){
   const media = content.media?.length ? content.media : fallbackMedia
