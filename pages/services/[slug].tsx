@@ -2,18 +2,21 @@ import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { getContent } from '../../lib/store'
 import Header from '../../components/Header'
+import { demoImages, resolveDemoImage } from '../../lib/demoImages'
 
-const fallbackServiceImage = '/images/hvac-hero.svg'
+const fallbackServiceImage = demoImages.hero
 
 export default function ServiceDetail({ service }: any) {
   if (!service) return <div className="p-6">Service not found</div>
+  const image = resolveDemoImage(service.image, fallbackServiceImage)
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-gray-50">
       <Header />
       <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
         <Link href="/services" className="text-sm font-semibold text-brand-600">← Back to Services</Link>
         <article className="mt-4 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl">
-          <img src={service.image || fallbackServiceImage} alt={service.imageAlt || `${service.title} HVAC procedure`} className="h-64 w-full object-cover sm:h-80" />
+          <img src={image} alt={service.imageAlt || `${service.title} HVAC procedure`} className="h-64 w-full object-cover sm:h-80" />
           <div className="p-5 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-sm">Terrell AC & Heating</p>
             <h1 className="mt-2 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">{service.title}</h1>
