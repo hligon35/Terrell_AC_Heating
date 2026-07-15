@@ -15,7 +15,6 @@ export default function Header({ variant = 'primary' }: { variant?: 'primary' | 
     ['Services', '/services'],
     ['About', '/about'],
     ['Specials', '/specials'],
-    ['Gallery', '/gallery'],
     ['Contact', '/contact']
   ]
 
