@@ -8,6 +8,13 @@ export const uploadedHvacImages = {
   residentialCondenser: '/images/hvac-demo/residential-condenser.jpg',
   gaugeRepair: '/images/hvac-demo/gauge-repair.jpg',
   workVan: '/images/hvac-demo/workvan.jpg',
+  systemInstallation: '/images/hvac-demo/installation.jpg',
+  systemReplacement: '/images/hvac-demo/replacement.jpg',
+  emergencyRepair: '/images/hvac-demo/emergency.jpg',
+  preventativeMaintenance: '/images/hvac-demo/preventative.jpg',
+  ductCleaningSealing: '/images/hvac-demo/hvacclean.jpg',
+  thermostatServices: '/images/hvac-demo/thermostat.jpg',
+  tuneUp: '/images/hvac-demo/tune-up.jpg'
 }
 
 export const stockHvacImages = {
@@ -21,17 +28,23 @@ export const stockHvacImages = {
 export const demoImages = {
   hero: uploadedHvacImages.workVan,
   heroAlt: uploadedHvacImages.outdoorCondensers,
-  acRepair: uploadedHvacImages.gaugeRepair,
-  heatingRepair: uploadedHvacImages.residentialCondenser,
-  installation: uploadedHvacImages.rooftopDiagnostics,
-  maintenance: uploadedHvacImages.indoorMaintenance,
-  indoorAir: stockHvacImages.cleanInterior,
-  ductwork: uploadedHvacImages.techTablet,
-  commercial: uploadedHvacImages.commercialRooftop,
-  tuneup: uploadedHvacImages.indoorMaintenance,
+  systemInstallation: uploadedHvacImages.systemInstallation,
+  systemReplacement: uploadedHvacImages.systemReplacement,
+  emergencyRepair: uploadedHvacImages.emergencyRepair,
+  preventativeMaintenance: uploadedHvacImages.preventativeMaintenance,
+  ductCleaningSealing: uploadedHvacImages.ductCleaningSealing,
+  thermostatServices: uploadedHvacImages.thermostatServices,
+  tuneup: uploadedHvacImages.tuneUp,
   team: stockHvacImages.technicianGeneral,
   comfortInterior: stockHvacImages.comfortInterior,
   constructionWork: stockHvacImages.constructionWork,
+  commercial: uploadedHvacImages.commercialRooftop,
+  acRepair: uploadedHvacImages.emergencyRepair,
+  heatingRepair: uploadedHvacImages.residentialCondenser,
+  installation: uploadedHvacImages.systemInstallation,
+  maintenance: uploadedHvacImages.preventativeMaintenance,
+  indoorAir: stockHvacImages.cleanInterior,
+  ductwork: uploadedHvacImages.ductCleaningSealing,
   techTablet: uploadedHvacImages.techTablet,
   residentialCondenser: uploadedHvacImages.residentialCondenser,
   outdoorCondensers: uploadedHvacImages.outdoorCondensers,
@@ -43,21 +56,21 @@ export const demoImages = {
 }
 
 export const demoServiceImages = [
-  demoImages.acRepair,
-  demoImages.heatingRepair,
-  demoImages.installation,
-  demoImages.maintenance,
-  demoImages.indoorAir,
-  demoImages.ductwork
+  demoImages.systemInstallation,
+  demoImages.systemReplacement,
+  demoImages.emergencyRepair,
+  demoImages.preventativeMaintenance,
+  demoImages.ductCleaningSealing,
+  demoImages.thermostatServices
 ]
 
 export const demoGalleryImages = [
-  { name: 'Commercial rooftop HVAC equipment', url: demoImages.commercial, alt: 'Commercial rooftop HVAC units and piping systems' },
-  { name: 'Outdoor condenser lineup', url: demoImages.heroAlt, alt: 'Multiple outdoor condenser units lined up outside' },
-  { name: 'Comfort-focused interior', url: demoImages.comfortInterior, alt: 'Modern home interior representing comfort and airflow' },
-  { name: 'General service readiness', url: demoImages.team, alt: 'HVAC service professional prepared for the day' },
-  { name: 'Installation job site', url: demoImages.constructionWork, alt: 'Professional construction and equipment installation work' },
-  { name: 'Seasonal tune-up detail', url: demoImages.tuneup, alt: 'Technician performing maintenance and cleaning work' }
+  { name: 'System installation work', url: demoImages.systemInstallation, alt: 'HVAC system installation work' },
+  { name: 'System replacement options', url: demoImages.systemReplacement, alt: 'HVAC system replacement equipment' },
+  { name: 'Emergency repair response', url: demoImages.emergencyRepair, alt: 'Emergency HVAC repair service' },
+  { name: 'Preventative maintenance visit', url: demoImages.preventativeMaintenance, alt: 'Preventative HVAC maintenance service' },
+  { name: 'Duct cleaning and sealing', url: demoImages.ductCleaningSealing, alt: 'Duct cleaning and sealing service' },
+  { name: 'Thermostat services', url: demoImages.thermostatServices, alt: 'Thermostat service and setup' }
 ]
 
 export function resolveDemoImage(src: string | undefined | null, fallback: string) {
