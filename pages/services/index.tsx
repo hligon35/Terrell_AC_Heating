@@ -64,18 +64,15 @@ export default function Services() {
     <div className="min-h-screen overflow-x-hidden bg-gray-50">
       <Header />
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-        <section className="mb-8 overflow-hidden rounded-3xl bg-gray-900 text-white shadow-xl">
-          <div className="grid gap-0 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-            <div className="p-6 sm:p-8 lg:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300 sm:text-sm">AC & Heating Services</p>
-              <h1 className="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">HVAC help for installs, replacements, repairs, maintenance, ducts, and thermostats.</h1>
-              <p className="mt-4 text-sm leading-7 text-gray-300 sm:text-base">Choose the service that matches what is happening with your system. Each card below gives customers a clear explanation, a service image, and a direct way to request help.</p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href="/request" className="inline-flex w-full justify-center rounded-xl bg-red-600 px-5 py-3 font-bold text-white sm:w-auto">Request Service</Link>
-                <a href="tel:(555) 555-5555" className="inline-flex w-full justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-bold text-white sm:w-auto">Call Now</a>
-              </div>
+        <section className="mb-8 overflow-hidden rounded-3xl bg-gray-900 px-5 py-12 text-center text-white shadow-xl sm:px-8 sm:py-16 lg:px-12">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300 sm:text-sm">AC & Heating Services</p>
+            <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">HVAC help for installs, replacements, repairs, maintenance, ducts, and thermostats.</h1>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-gray-300 sm:text-base">Choose the service that matches what is happening with your system. Each card below gives customers a clear explanation, a service image, and a direct way to request help.</p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+              <Link href="/request" className="inline-flex w-full justify-center rounded-xl bg-red-600 px-5 py-3 font-bold text-white sm:w-auto">Request Service</Link>
+              <a href="tel:(555) 555-5555" className="inline-flex w-full justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-bold text-white sm:w-auto">Call Now</a>
             </div>
-            <img src={demoImages.systemInstallation} alt="HVAC system installation service" className="h-64 w-full object-cover sm:h-72 md:h-full" />
           </div>
         </section>
 
