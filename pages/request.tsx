@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import Header from '../components/Header'
 
+const serviceOptions = [
+  'System Installation',
+  'System Replacement',
+  'Emergency Repair',
+  'Preventative Maintenance',
+  'Duct Cleaning & Sealing',
+  'Thermostat Services'
+]
+
 export default function Request() {
   const [form, setForm] = useState({ name:'', phone:'', email:'', service:'', urgency:'Routine', datetime:'', address:'', message:'' })
   const [status, setStatus] = useState('')
@@ -21,7 +30,7 @@ export default function Request() {
           <div className="bg-gray-950 p-5 text-white sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300 sm:text-sm">Request Service</p>
             <h1 className="mt-2 text-3xl font-extrabold leading-tight sm:text-4xl">Schedule HVAC service for your home or business.</h1>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-gray-300 sm:text-base">Share the issue, preferred timing, and service address. We will follow up to confirm availability and make sure the right technician is prepared.</p>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-gray-300 sm:text-base">Choose the service you need, share the issue, and tell us your preferred timing. We will follow up to confirm availability and next steps.</p>
           </div>
 
           <form onSubmit={submit} className="grid gap-4 p-5 sm:grid-cols-2 sm:p-8">
@@ -31,12 +40,7 @@ export default function Request() {
 
             <select aria-label="Service type" value={form.service} onChange={e=>setForm({...form, service:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100">
               <option value="">Select service needed</option>
-              <option>AC repair</option>
-              <option>Heating repair</option>
-              <option>System installation</option>
-              <option>Seasonal maintenance</option>
-              <option>Indoor air quality</option>
-              <option>Commercial HVAC</option>
+              {serviceOptions.map(service => <option key={service}>{service}</option>)}
             </select>
 
             <select aria-label="Urgency" value={form.urgency} onChange={e=>setForm({...form, urgency:e.target.value})} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100">
