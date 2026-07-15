@@ -4,23 +4,28 @@ import Header from '../components/Header'
 
 export default function About({ content }: any) {
   const about = content.about || {}
-  const site = content.site || {}
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="min-h-screen bg-gray-50">
       <Header />
 
-      <section className="bg-white p-6 rounded shadow mt-6">
-        <p className="text-lg mb-4">{about.intro}</p>
-        <h2 className="text-xl font-semibold">Our Team</h2>
-        <ul className="mt-3 space-y-2">
-          {(about.team || []).map((m:any,i:number)=>(<li key={i} className="p-3 bg-gray-50 rounded">{m.name} — {m.role}</li>))}
-        </ul>
+      <main className="max-w-5xl mx-auto p-6">
+        <section className="mt-6 overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100">
+          <img src={about.image || 'https://source.unsplash.com/1400x950/?hvac,team,technician'} alt={about.imageAlt || 'HVAC service team and equipment'} className="h-72 w-full object-cover" />
+          <div className="p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-red-500">About Terrell AC & Heating</p>
+            <p className="mt-3 text-lg leading-8 text-gray-700">{about.intro || 'Terrell AC and Heating provides dependable AC, heating, installation, and maintenance service with clean workmanship and honest recommendations.'}</p>
+            <h2 className="mt-8 text-xl font-semibold text-gray-900">Our Team</h2>
+            <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+              {(about.team || []).map((m:any,i:number)=>(<li key={i} className="p-4 bg-gray-50 rounded-2xl border border-gray-100"><span className="font-semibold">{m.name}</span><div className="text-sm text-gray-600">{m.role}</div></li>))}
+            </ul>
 
-        <h3 className="mt-6 text-lg font-semibold">Values</h3>
-        <ul className="mt-2 flex gap-3 flex-wrap">
-          {(about.values || []).map((v:any,i:number)=>(<li key={i} className="px-3 py-1 bg-gray-100 rounded">{v}</li>))}
-        </ul>
-      </section>
+            <h3 className="mt-8 text-lg font-semibold text-gray-900">Values</h3>
+            <ul className="mt-3 flex gap-3 flex-wrap">
+              {(about.values || ['Honest diagnostics', 'Clean workmanship', 'Fast response', 'Comfort-first service']).map((v:any,i:number)=>(<li key={i} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700">{v}</li>))}
+            </ul>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }
